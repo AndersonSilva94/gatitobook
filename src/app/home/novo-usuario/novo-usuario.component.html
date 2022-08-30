@@ -50,6 +50,12 @@
         novoUsuarioForm.get('userName')?.touched
       "
     ></app-mensagem>
+    <app-mensagem
+      mensagem="Usuário já existe"
+      *ngIf="novoUsuarioForm.get('userName')?.errors?.['existe'] &&
+        novoUsuarioForm.get('userName')?.touched
+      "
+    ></app-mensagem>
   </div>
 
   <div class="form-group mt-3">
