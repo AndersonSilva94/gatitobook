@@ -8,6 +8,18 @@
       placeholder="E-mail"
       formControlName="email"
     />
+    <app-mensagem
+      mensagem="Email obrigatório"
+      *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] &&
+      novoUsuarioForm.get('email')?.touched
+      "
+    ></app-mensagem>
+    <app-mensagem
+      mensagem="Email no formato inválido"
+      *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] &&
+      novoUsuarioForm.get('email')?.touched
+      "
+    ></app-mensagem>
   </div>
 
   <div class="form-group mt-3">
@@ -17,6 +29,12 @@
       placeholder="Nome completo"
       formControlName="fullName"
     />
+    <app-mensagem
+      mensagem="Nome incorreto"
+      *ngIf="novoUsuarioForm.get('fullName')?.errors &&
+      novoUsuarioForm.get('fullName')?.touched
+      "
+    ></app-mensagem>
   </div>
 
   <div class="form-group mt-3">
